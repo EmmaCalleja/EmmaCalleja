@@ -2,34 +2,44 @@
 public class Employee {
 	private String name;
 	private int idEmployee;
-	private double sales;
 	private double salesTips;
 	private double CurrPoints;
+	private double PayCheck; 
 
 	
 	public Employee () {
 		name = "N/A";
 		idEmployee = 0000;
-		sales = 00.00;
 		salesTips = 0.00;
-		CurrPoints = salesTips * .1; 
+		PayCheck = 0.00; 
+		CurrPoints = salesTips * .10; 
 	}
 	public Employee (String n, int i) {
 		name = n;
 		idEmployee = i;
-		sales = 0.00;
 		salesTips = 0.00;
 		CurrPoints = 0; 
+		PayCheck = 0.00; 
 
 	}
 		public Employee (String n, int i, double p) {
 			name = n;
 			idEmployee = i;
-			sales = 0.00;
 			salesTips = 0.00;
 			CurrPoints = p; 
+			PayCheck = 0.00; 
 
 		}
+		public Employee (String n, int i, double p, double c) {
+			name = n;
+			idEmployee = i;
+			salesTips = 0.00;
+			CurrPoints = p; 
+			PayCheck = c; 
+
+		}
+		
+		
 	public void PrintRewards(double CurrPoints) {
 		double tier1Min = 0;
 		double tier1Max = 1000;
@@ -39,24 +49,37 @@ public class Employee {
 		double tier3Max = 3000;
 
 	    if (CurrPoints >= tier1Min && CurrPoints <= tier1Max) {
-	        System.out.println("Current points are in Tier 1");
+	        System.out.println("You are are in Tier 1: Bronze Level");
+	        System.out.println("Your benefits include 50% discount on all Menu Items and a 15 minute break.");
 	        double Reach1 = tier1Max-CurrPoints; 
-	        System.out.println("You need " + Reach1 + " to advance to next tier");
+	        System.out.println("You need " + Reach1 + " to advance to next tier: Silver Level");
 	    } else if (CurrPoints >= tier2Min && CurrPoints <= tier2Max) {
-	        System.out.println("Current points are in Tier 2");
+	        System.out.println("Current points are in Tier 2: Silver Level");
+	        System.out.println("Your benefits include 75% discount on all Menu items and an 30 minute break.");
 	        double Reach2 = tier2Max-CurrPoints; 
-	        System.out.println("You need " + Reach2 + " to advance to next tier");
+	        System.out.println("You need " + Reach2 + " to advance to next tier: Gold Level");
 	    } else if (CurrPoints >= tier3Min && CurrPoints < tier3Max) {
-	        System.out.println("Current points are in Tier 3");
+	        System.out.println("Current points are in Tier 3: Gold Level");
+	        System.out.println("Your benefits include 100% discount on all Menu items, a 30 minute break, and 5 paid leave days.");
+
 	        double Reach3 = tier3Max-CurrPoints; 
-	        System.out.println("You need " + Reach3 + " to advance to next tier");
-	    } 
-	    else if (CurrPoints == tier3Max) {
-	        System.out.println("You are Promoted");
+	        System.out.println("You need " + Reach3 + " to advance to your promotion!");
 	    } 
 	    else {
-	        System.out.println("Current points are not in any tier");
-	    }		
+	        System.out.println("You are Promoted");
+	        System.out.println("Your benefits include 100% discount on all Menu items, an 30 minute break, 5 paid leave days, and healthcare benefits.");
+
+	    } 
+		
+		}
+	
+	public void CheckforPay(double PayCheck) {
+		PayCheck = PayCheck + salesTips; 
+		System.out.println("You earned $" + PayCheck + " so far! " );
+		System.out.println("You will be paid on Sunday" );
+		System.out.println("Well Done " + name + "!");
+
+
 		}
 		
 		
@@ -75,13 +98,7 @@ public class Employee {
 		public void setID(int d) {
 			this.idEmployee = d;
 		}
-		public double getSales() {
-			return sales;
-		}
-
-		public void setSales(double s) {
-			this.sales = s;
-		}
+	
 		public double getSalesTips() {
 			return salesTips;
 		}
@@ -96,7 +113,12 @@ public class Employee {
 		public void setPoints(double c) {
 			this.CurrPoints = c;
 		}
-
+		public void setCheck(double p) {
+			this.PayCheck = p;
+		}
+		public double getCheck() {
+			return PayCheck;
+		}
 		
 		
 	}
