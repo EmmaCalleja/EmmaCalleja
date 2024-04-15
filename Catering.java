@@ -42,9 +42,7 @@ import java.util.Map;
     
     public void printCateringFoodItems() {
         System.out.println("Catering Food Items:");
-        for (Map.Entry<Integer, String> entry : cateringFoodItems.entrySet()) {
-            System.out.println(entry.getKey() + ". " + entry.getValue());
-        }
+        for 
     }
     
     public static double[] getCateringprice() {
