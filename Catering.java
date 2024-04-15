@@ -1,4 +1,4 @@
-package project;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,9 +15,9 @@ import java.util.Map;
     private int orderNumber;
     private Map<Integer, String> cateringFoodItems; 
     
-    // Constructor with delivery address and order number parameters
+   
     public Catering(String deliveryAddress, int orderNumber) {
-        super(); // Use fixed menu and prices
+        super(); 
         this.deliveryAddress = deliveryAddress;
         this.orderNumber = orderNumber;
        
@@ -27,7 +27,7 @@ import java.util.Map;
     }
     
     
-    // Method to initialize CateringFood items
+    
     private void initializeCateringFoodItems() {
     	try {
         cateringFoodItems = new HashMap<>();
@@ -39,18 +39,13 @@ import java.util.Map;
     	}
     }
     
-    // Method to print CateringFood items
+    
     public void printCateringFoodItems() {
         System.out.println("Catering Food Items:");
         for (Map.Entry<Integer, String> entry : cateringFoodItems.entrySet()) {
             System.out.println(entry.getKey() + ". " + entry.getValue());
         }
     }
-	
-    // Method to calculate total price for selected items
-    
-    // Additional methods specific to catering services
-    
     
     public static double[] getCateringprice() {
 		return CateringPrice;
@@ -59,7 +54,7 @@ import java.util.Map;
 		return CateringMenu;
 	}
 
-    // Getter and setter for delivery address
+    
     public String getDeliveryAddress() {
         return deliveryAddress;
     }
@@ -68,7 +63,7 @@ import java.util.Map;
         this.deliveryAddress = deliveryAddress;
     }
     
-    // Getter and setter for order number
+    
     public int getOrderNumber() {
         return orderNumber;
     }
