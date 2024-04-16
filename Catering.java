@@ -3,7 +3,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Catering extends Menu {
-    private static String[] CateringMenu = {"Classic Milk Tea", "Taro Milk Tea", "Brown Sugar Milk Tea"};
+    private static String[] CateringMenu = {"Vanellia Milk Tea", "Strawberry Milk Tea", "Brown Sugar Milk Tea"};
     private static double[] CateringPrice = {30, 32, 35};
 
     private String deliveryAddress;
