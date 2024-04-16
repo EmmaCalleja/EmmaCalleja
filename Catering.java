@@ -1,58 +1,47 @@
-
-
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
- class Catering extends Menu {
-	public static void main(String[] args) {
-	
-	}
-    private static String[] CateringMenu = {"Classic Milk Tea", "Taro Milk Tea", "Brown Sugar Milk Tea"}; 
-    private static double[] CateringPrice = {30, 32, 35}; 
-    
-	
+public class Catering extends Menu {
+    private static String[] CateringMenu = {"Classic Milk Tea", "Taro Milk Tea", "Brown Sugar Milk Tea"};
+    private static double[] CateringPrice = {30, 32, 35};
+
     private String deliveryAddress;
     private int orderNumber;
-    private Map<Integer, String> cateringFoodItems; 
-    
-   
+    private Map<Integer, String> cateringFoodItems;
+
     public Catering(String deliveryAddress, int orderNumber) {
-        super(); 
+        super();
         this.deliveryAddress = deliveryAddress;
         this.orderNumber = orderNumber;
-       
-        initializeCateringFoodItems(); 
+
+        initializeCateringFoodItems();
         System.out.println("Delivery Address: " + deliveryAddress);
         System.out.println("Order Number: " + orderNumber);
     }
-    
-    
-    
+
     private void initializeCateringFoodItems() {
-    	try {
         cateringFoodItems = new HashMap<>();
-        cateringFoodItems.put(1, "Classic Milk Tea");
-        cateringFoodItems.put(2, "Taro Milk Tea");
-        cateringFoodItems.put(3, "Brown Sugar Milk Tea");
-    	} catch (Exception e)	{
-        System.out.println("Please input customers catering menu items(1-3): " + cateringFoodItems);
-    	}
+        for (int i = 0; i < CateringMenu.length; i++) {
+            cateringFoodItems.put(i + 1, CateringMenu[i]);
+        }
     }
-    
-    
+
     public void printCateringFoodItems() {
         System.out.println("Catering Food Items:");
-        for 
+        for (Map.Entry<Integer, String> entry : cateringFoodItems.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
     }
-    
-    public static double[] getCateringprice() {
-		return CateringPrice;
-	}
-	public static String[] getCateringfood() {
-		return CateringMenu;
-	}
 
-    
+    public static double[] getCateringPrice() {
+        return CateringPrice;
+    }
+
+    public static String[] getCateringFood() {
+        return CateringMenu;
+    }
+
     public String getDeliveryAddress() {
         return deliveryAddress;
     }
@@ -60,18 +49,45 @@ import java.util.Map;
     public void setDeliveryAddress(String deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
     }
-    
-    
+
     public int getOrderNumber() {
         return orderNumber;
     }
 
     public void setOrderNumber(int orderNumber) {
-    
         this.orderNumber = orderNumber;
-       
     }
-	}
-	
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Display the catering menu
+        System.out.println("Catering Menu:");
+        String[] cateringMenu = Catering.getCateringFood();
+        double[] cateringPrices = Catering.getCateringPrice();
+        for (int i = 0; i < cateringMenu.length; i++) {
+            System.out.println((i + 1) + ". " + cateringMenu[i] + " - $" + cateringPrices[i]);
+        }
+
+        // Prompt the employee to select a catering food item
+        System.out.print("Enter the number corresponding to the catering food item (1-3): ");
+        int selection = scanner.nextInt();
+
+        // Validate the input
+        if (selection < 1 || selection > 3) {
+            System.out.println("Invalid selection. Please enter a number between 1 and 3.");
+            return;
+        }
+
+        // Get the selected catering food item
+        String selectedFood = cateringMenu[selection - 1];
+        double selectedPrice = cateringPrices[selection - 1];
+
+       
+        System.out.println("You selected: " + selectedFood + " - $" + selectedPrice);
+
+        
+        scanner.close();
+    }
+}
 
