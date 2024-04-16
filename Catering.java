@@ -61,7 +61,7 @@ public class Catering extends Menu {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Display the catering menu
+        
         System.out.println("Catering Menu:");
         String[] cateringMenu = Catering.getCateringFood();
         double[] cateringPrices = Catering.getCateringPrice();
@@ -69,17 +69,17 @@ public class Catering extends Menu {
             System.out.println((i + 1) + ". " + cateringMenu[i] + " - $" + cateringPrices[i]);
         }
 
-        // Prompt the employee to select a catering food item
+        // this is the prompt that the employee will be asked to select a catering food item
         System.out.print("Enter the number corresponding to the catering food item (1-3): ");
         int selection = scanner.nextInt();
 
-        // Validate the input
+        // Validates the input
         if (selection < 1 || selection > 3) {
             System.out.println("Invalid selection. Please enter a number between 1 and 3.");
             return;
         }
 
-        // Get the selected catering food item
+        
         String selectedFood = cateringMenu[selection - 1];
         double selectedPrice = cateringPrices[selection - 1];
 
