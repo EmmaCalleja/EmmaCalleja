@@ -1,132 +1,81 @@
 
 
-public class Menu {
-  public static void main(String[] args) {
-        Scanner scnr = new Scanner(System.in);
-        
-        ArrayList<Member> memberDatabase = new ArrayList<Member>();
-        
-        String foodOrBev = "";
-        String snackChoice = "";
-        String drinkChoice = "";
-        String toppingChoice = "";
-        String flavorChoice = "";
-        String memberInput = "";
-        double orderTotal = 0;
-        String memberInputNumber = "";
-      
-        
+	public class Menu {
+		private String drinkSize;
+		private String drinkIce;
+		private String drinkToppings;
+		private String drinkFlavor;
+		private double drinkPrice; 
 
-	System.out.println("Welcome! What would you like to order");
-	System.out.println("Drinks or Snacks?");
-	foodOrBev = scnr.nextLine();
-	
-	if(foodOrBev.equals("Snacks")) {
-		System.out.println("Would you like");
-		System.out.println("Mochi Ice Cream");
-		System.out.println("Lavender Macaroons");
-		System.out.println("Dumplings");
-		snackChoice = scnr.nextLine();
-	}
-	
-	if(foodOrBev.equals("Drinks")) {
-		System.out.println("Would you like");
-		System.out.println("Milk Tea");
-		System.out.println("Coffee");
-		System.out.println("Smoothie");
-		drinkChoice = scnr.nextLine();
 		
-		if(drinkChoice.equals("Milk Tea")) {
-			System.out.println("Great choice! What flavor are we thinking?");
-			System.out.println("Vanilla");
-			System.out.println("Strawberry");
-			System.out.print("Lavendar");
-			flavorChoice = scnr.nextLine();
+		public Menu () {
+	        drinkSize = "N/A";
+	        drinkIce = "N/A";
+	        drinkToppings = "N/A";
+	        drinkFlavor = "N/A";
+	        drinkPrice = 0.0; 
+			
 		}
 		
-		if(drinkChoice.equals("Coffee")) {
-			System.out.println("Great choice! What flavor are we thinking?");
-			System.out.println("Vanilla");
-			System.out.println("Brown Sugar");
-			flavorChoice = scnr.nextLine();
-		}
+	public Menu (String n, String i, String p, String c) {
+				drinkSize = n; 
+				drinkIce = i; 
+				drinkToppings = p; 
+				drinkFlavor = c;
+				drinkPrice = 0.0; 
+
+			}
+			
+			
+	
+			public void PriceOfBoba() {
+		        if (drinkSize.equals("medium")) {
+		            drinkPrice = drinkPrice + 3;
+		            System.out.println("The Price of your drink is $" + drinkPrice);
+		        } else if (drinkSize.equals("large")) {
+		            drinkPrice = drinkPrice + 5;
+		            System.out.println("The Price of your drink is $" + drinkPrice);
+		        } else {
+		            System.out.println("Invalid Option");
+		        }
 		
-		if(drinkChoice.equals("Smoothie")){
-			System.out.println("Great choice! What flavor are we thinking?");
-			System.out.println("Strawberry");
-			System.out.println("Peach");
-			System.out.println("Blueberry");
-			flavorChoice = scnr.nextLine();
-		}
-	
-	}
-	
-	if(foodOrBev.equals("Drinks")) {
-		System.out.println("Would you like to add any toppings?");
-		toppingChoice = scnr.nextLine();
-	}
-	
-	if(toppingChoice.equals("Yes")) {
-		System.out.println("Good call! Are we feeling");
-		System.out.println("Tapioca Pearls");
-		System.out.println("Strawberry Popping Pearls");
-		System.out.println("Blueberry Popping Pearls");
-		System.out.println("Peach Popping Pearls");
-		toppingChoice = scnr.nextLine();
-	}
-	
-	if(toppingChoice.equals("No")) {
-		System.out.println("Ok!");
-	}
-	
-	// Repeating the Order
-	
-	System.out.print("Sounds delicious! That ");
-	if(foodOrBev.equals("Snacks")) {
-		System.out.println("order of " + snackChoice);
-	}
-	
-	System.out.print( flavorChoice + " " + drinkChoice);
-	if (!toppingChoice.equals("No")) {
-		System.out.print(" with " + toppingChoice);
-	}
-	
-	System.out.println(" will be ");
-	if(foodOrBev.equals("Snacks")) {
-		orderTotal = 3.50;
-	}
-	if(foodOrBev.equals("Drinks")) {
-		orderTotal = 2.00;
-	}
-	if(!toppingChoice.equals("No")) {
-		orderTotal = orderTotal + 0.50;
-	}
-	System.out.print("$" + orderTotal);
-	
-	//Referencing Membership
-	System.out.println("Do you have a membership with us?");
-	memberInput = scnr.nextLine();
-	if(memberInput.equalsIgnoreCase("Yes"))	{
-		System.out.println("Welcome back! Please enter your member number: ");
-		memberInputNumber = scnr.nextLine();
-    }
-	else {
-		System.out.println("No problem! We'll set up your account now! Please enter your phone number:");
-		string memberInputNumber = scnr.nextLine();
-	}
-	System.out.println("Thank you! We'll add ");
-	if(foodOrBev.equals("Drinks")) {
-		System.out.print("3 points ");
-	}
-	if(foodOrBev.equals("Snacks")) {
-		System.out.print("5 points ");
-	}
-	System.out.print("to your rewards!");
-	
-	//giving order number
-	System.out.println("Your order number is ");
-	}
+		        if (drinkToppings.equals("boba") || drinkToppings.equals("matcha") || drinkToppings.equals("cold foam")) {
+		            drinkPrice = drinkPrice + 1;
+		        } else if (drinkToppings.equals("none")) {
+		            drinkPrice = drinkPrice + 0;
+		        } else {
+		            System.out.println("Invalid Option");
+		        }
+		    }
+		
+			
+			public String getSize() {
+				return drinkSize;
+			}
 
-}
+			public void setSize(String n) {
+				this.drinkSize = n;
+			}
 
+			public String getIce() {
+				return drinkIce;
+			}
+
+			public void setIce(String i) {
+				this.drinkIce = i;
+			}
+			public void setTop(String t) {
+				this.drinkToppings = t;
+			}
+			public String getFlavor() {
+				return drinkFlavor;
+			}
+
+			public void setFlavor(String f) {
+				this.drinkFlavor = f;
+			}
+
+			
+
+		
 }
