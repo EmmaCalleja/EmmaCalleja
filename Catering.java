@@ -80,5 +80,9 @@ public class Catering extends Menu {
         String selectedFood = cateringMenu[selection - 1];
         double selectedPrice = cateringPrices[selection - 1];
         System.out.println("You selected: " + selectedFood + " - $" + selectedPrice);
+         System.out.println("Enter delivery address - ");
+        System.out.println("Enter customer ID - ");
+        scanner.close();
     }
-}
+    }
+
