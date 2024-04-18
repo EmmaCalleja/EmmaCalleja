@@ -48,6 +48,26 @@ public class Restaurant {
         customerMenu.setFlavor(flavor);
         customerMenu.PriceOfBoba(); // Call the PriceOfBoba() method
     }
+public void print() {
+ 	   
+        try (Scanner scanner = new Scanner(System.in)) {
+			System.out.println("Catering Menu:");
+			String[] cateringMenu = Catering.getCateringFood();
+			double[] cateringPrices = Catering.getCateringPrice();
+			for (int i = 0; i < cateringMenu.length; i++) {
+			    System.out.println((i + 1) + ". " + cateringMenu[i] + " - $" + cateringPrices[i]);
+			}
 
+			// this is the prompt that the employee will be asked to select a catering food item
+			System.out.print("Enter the number corresponding to the catering food item (1-3): ");
+			int selection = scanner.nextInt();
+
+			// Validates the input
+			if (selection < 1 || selection > 3) {
+			    System.out.println("Invalid selection. Please enter a number between 1 and 3.");
+			    return;
+			}
+		}
     // Rest of the code remains the same
+}
 }
