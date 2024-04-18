@@ -52,17 +52,19 @@ public class Employee {
 	        System.out.println("You are are in Tier 1: Bronze Level");
 	        System.out.println("Your benefits include 50% discount on all Menu Items and a 15 minute break.");
 	        double Reach1 = tier1Max-CurrPoints; 
+	        Math.round(Reach1); 
 	        System.out.println("You need " + Reach1 + " to advance to next tier: Silver Level");
 	    } else if (CurrPoints >= tier2Min && CurrPoints <= tier2Max) {
 	        System.out.println("Current points are in Tier 2: Silver Level");
 	        System.out.println("Your benefits include 75% discount on all Menu items and an 30 minute break.");
 	        double Reach2 = tier2Max-CurrPoints; 
+	        Math.round(Reach2); 
 	        System.out.println("You need " + Reach2 + " to advance to next tier: Gold Level");
 	    } else if (CurrPoints >= tier3Min && CurrPoints < tier3Max) {
 	        System.out.println("Current points are in Tier 3: Gold Level");
 	        System.out.println("Your benefits include 100% discount on all Menu items, a 30 minute break, and 5 paid leave days.");
-
 	        double Reach3 = tier3Max-CurrPoints; 
+	        Math.round(Reach3); 
 	        System.out.println("You need " + Reach3 + " to advance to your promotion!");
 	    } 
 	    else {
@@ -73,14 +75,6 @@ public class Employee {
 		
 		}
 	
-	public void CheckforPay(double PayCheck) {
-		PayCheck = PayCheck + salesTips; 
-		System.out.println("You earned $" + PayCheck + " so far! " );
-		System.out.println("You will be paid on Sunday" );
-		System.out.println("Well Done " + name + "!");
-
-
-		}
 		
 		
 		public String getName() {
