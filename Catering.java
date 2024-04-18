@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*; 
 
 public class Catering extends Menu {
     private static String[] CateringMenu = {"Vanilla Milk Tea", "Strawberry Milk Tea", "Lavender Milk Tea"};
@@ -8,16 +6,15 @@ public class Catering extends Menu {
 
     private String deliveryAddress;
     private int orderNumber;
-    private Map<Integer, String> cateringFoodItems;
+    private HashMap<Integer, String> cateringFoodItems;
 
     public Catering(String deliveryAddress, int orderNumber) {
         super();
         this.deliveryAddress = deliveryAddress;
         this.orderNumber = orderNumber;
-
-        initializeCateringFoodItems();
-        System.out.println("Delivery Address: " + deliveryAddress);
-        System.out.println("Order Number: " + orderNumber);
+       initializeCateringFoodItems();
+    /*    System.out.println("Delivery Address: " + deliveryAddress);
+        System.out.println("Order Number: " + orderNumber); */
     }
 
     private void initializeCateringFoodItems() {
@@ -57,37 +54,31 @@ public class Catering extends Menu {
     public void setOrderNumber(int orderNumber) {
         this.orderNumber = orderNumber;
     }
+    @Override
+    public void PriceOfBoba() {
+        System.out.println("This is the overridden PriceOfBoba() method for catering orders.");
 
+    }
     public void print() {
-        Scanner scanner = new Scanner(System.in);
-
-        
         System.out.println("Catering Menu:");
+        Scanner scanner = new Scanner(System.in);
         String[] cateringMenu = Catering.getCateringFood();
         double[] cateringPrices = Catering.getCateringPrice();
+
         for (int i = 0; i < cateringMenu.length; i++) {
             System.out.println((i + 1) + ". " + cateringMenu[i] + " - $" + cateringPrices[i]);
         }
 
-        // this is the prompt that the employee will be asked to select a catering food item
         System.out.print("Enter the number corresponding to the catering food item (1-3): ");
         int selection = scanner.nextInt();
 
-        // Validates the input
         if (selection < 1 || selection > 3) {
             System.out.println("Invalid selection. Please enter a number between 1 and 3.");
             return;
         }
 
-        
         String selectedFood = cateringMenu[selection - 1];
         double selectedPrice = cateringPrices[selection - 1];
-
-       
         System.out.println("You selected: " + selectedFood + " - $" + selectedPrice);
-
-        
-        scanner.close();
     }
 }
-
