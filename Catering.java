@@ -58,7 +58,7 @@ public class Catering extends Menu {
         this.orderNumber = orderNumber;
     }
 
-    public static void main(String[] args) {
+    public void print() {
         Scanner scanner = new Scanner(System.in);
 
         
