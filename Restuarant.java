@@ -40,28 +40,24 @@ public class Restuarant {
                         System.out.print("Enter Tips Today: $");
                         double userTips = scanner.nextDouble();
                         double rewards = userTips * 0.1;
+                        rewards = Math.round(rewards);
+                        System.out.println("You earned  " +rewards+ " today!");
                         double pointsOfEm = foundEmployee.getPoints() + rewards;
                         foundEmployee.setPoints(pointsOfEm);
                         System.out.println("Your current rewards points are " + pointsOfEm);
-                        break;
                         }
                 else if (employeeMenuChoice == 2) {
                         // Check rewards status 
                         System.out.println("Your current points are " + foundEmployee.getPoints() + " points");
                         foundEmployee.PrintRewards(foundEmployee.getPoints());
-                        break;
                         }
                 else if (employeeMenuChoice == 3) {
-                        // Check paycheck
-                        double emPayCheck = foundEmployee.getCheck();
-                        foundEmployee.CheckforPay(emPayCheck);
-                        break;}
-                else if (employeeMenuChoice == 4) {
                         // Exit employee menu
-                        System.out.println("Exiting employee menu...");
+                        System.out.println("Exiting employee menu");
                         break;}
                 else {
                         System.out.println("Invalid option!");
+          
                 }
                 
             } while (employeeMenuChoice != 4);
@@ -77,7 +73,7 @@ public class Restuarant {
         System.out.println("Here are your Options: ");
         System.out.println("    1. Enter End-Of-Shift Results");
         System.out.println("    2. Check Rewards Status");
-        System.out.println("    3. Check Paycheck");
-        System.out.println("    4. Exit Employee Menu");
+        System.out.println("    3. Exit Employee Menu");
+        System.out.println("-------------------------------");
     }
 }
